@@ -20,6 +20,21 @@ export class Helper {
     return newArray;
   }
 
+  //	5- Dado un string, devolver un objeto/array que indique la palabra que mas veces se repite, y su cantidad.
+
+  contarPalabras(s) {
+    var r = {};
+    s = s.split(/\s+/).map(function (a) {
+      !r[a] && (r[a] = 0);
+      r[a]++;
+    });
+    return function (what) {
+      return { palabras: s.length, espacios: s.length - 1, repeticiones: r }[
+        what
+      ];
+    };
+  }
+
   //6- Verificar si un string es un palíndromo.
   palindrome(str) {
     var a = /[^A-Za-z0-9]/g;
@@ -34,9 +49,7 @@ export class Helper {
   }
 
   //7- Dado 3 numeros, devolver el mayor. Adaptar esto para que funcione con cualquier cantidad de numeros.
+  highest_of_three(num1, num2, num3) {
+    return Math.max(num1, num2, num3);
+  }
 }
-function highest_of_three(num1, num2, num3) {
-  return Math.max(num1, num2, num3);
-}
-
-console.log(highest_of_three(-5, 4, 2));
